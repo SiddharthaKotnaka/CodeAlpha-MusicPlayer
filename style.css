@@ -356,9 +356,31 @@ body::before{
 }
 
 .top-bar h1{
-    font-size: 28px;
-    font-weight: 600;
-    letter-spacing: 1px;
+    font-size: 52px;
+    font-weight: 700;
+    line-height: 1.1;
+    letter-spacing: -2px;
+    .top-bar h1{
+        font-size: 52px;
+        font-weight: 700;
+        line-height: 1.1;
+        letter-spacing: -2px;
+
+        background: linear-gradient(
+            to right,
+            #ffffff,
+            rgba(255,255,255,0.7)
+        );
+
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+    }
+}
+
+.top-bar h1 span{
+    display: block;
+    font-size: 46px;
+    color: rgba(255,255,255,0.85);
 }
 
 footer{
@@ -506,3 +528,4 @@ footer{
 .music-player:hover::after{
     left: 100%;
 }
+
