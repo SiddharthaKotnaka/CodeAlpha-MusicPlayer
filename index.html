@@ -26,6 +26,7 @@
     >
         <source src="assets/videos/song1.mp4" type="video/mp4">
     </video>
+    <div class="bg-glow"></div>
 
     <!-- Main Container -->
     <div class="music-container">
@@ -46,6 +47,9 @@
             <div class="song-details">
                 <h2 class="song-title" id="title">Dreamscape</h2>
                 <p class="artist-name" id="artist">Alan Walker</p>
+                <p class="song-meta">
+                    Chill • Electronic • 2026
+                </p>
             </div>
 
             <!-- Progress Bar -->
@@ -64,26 +68,29 @@
             <!-- Controls -->
             <div class="controls">
 
-                <button class="control-btn" id="prev">
-                    <i class="ri-skip-back-fill"></i>
-                </button>
+                <div class="controls">
 
-                <button class="play-btn" id="play">
-                    <i class="ri-play-fill"></i>
-                </button>
+                    <button class="control-btn" id="shuffle">
+                        <i class="ri-shuffle-line"></i>
+                    </button>
 
-                <button class="control-btn" id="next">
-                    <i class="ri-skip-forward-fill"></i>
-                </button>
+                    <button class="control-btn" id="prev">
+                        <i class="ri-skip-back-fill"></i>
+                    </button>
 
-            </div>
+                    <button class="play-btn" id="play">
+                        <i class="ri-play-fill"></i>
+                    </button>
 
-            <div class="equalizer">
+                    <button class="control-btn" id="next">
+                        <i class="ri-skip-forward-fill"></i>
+                    </button>
 
-                <span></span>
-                <span></span>
-                <span></span>
-                <span></span>
+                    <button class="control-btn" id="loop">
+                        <i class="ri-repeat-line"></i>
+                    </button>
+
+                </div>
 
             </div>
 
@@ -121,10 +128,6 @@
 
                 <li>
                     Spectre
-                </li>
-
-                <li>
-                    Alone
                 </li>
 
             </ul>
