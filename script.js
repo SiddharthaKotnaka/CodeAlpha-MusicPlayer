@@ -42,6 +42,11 @@ const bgVideo =
 const playBtn = document.getElementById("play");
 const prevBtn = document.getElementById("prev");
 const nextBtn = document.getElementById("next");
+const shuffleBtn =
+    document.getElementById("shuffle");
+
+const loopBtn =
+    document.getElementById("loop");
 
 const progress = document.getElementById("progress");
 const progressBar = document.getElementById("progress-bar");
@@ -53,12 +58,25 @@ const audio = new Audio();
 let currentSong = 0;
 let isPlaying = false;
 
+let isShuffle = false;
+let isLoop = false;
+
 // Load Song
 
 function loadSong(song){
 
     title.textContent = song.title;
     artist.textContent = song.artist;
+
+    cover.style.opacity = "0";
+
+    setTimeout(() => {
+
+        cover.src = song.cover;
+
+        cover.style.opacity = "1";
+
+    }, 200);
 
     cover.src = song.cover;
 
@@ -122,7 +140,17 @@ playBtn.addEventListener("click", () => {
 
 function nextSong(){
 
-    currentSong++;
+    if(isShuffle){
+
+        currentSong =
+            Math.floor(Math.random() * songs.length);
+
+    }
+    else{
+
+        currentSong++;
+
+    }
 
     if(currentSong > songs.length - 1){
         currentSong = 0;
@@ -147,6 +175,30 @@ function prevSong(){
 
     playSong();
 }
+
+// Shuffle Toggle
+
+shuffleBtn.addEventListener("click", () => {
+
+    isShuffle = !isShuffle;
+
+    shuffleBtn.style.color =
+        isShuffle ? "#1db954" : "white";
+
+});
+
+// Loop Toggle
+
+loopBtn.addEventListener("click", () => {
+
+    isLoop = !isLoop;
+
+    audio.loop = isLoop;
+
+    loopBtn.style.color =
+        isLoop ? "#1db954" : "white";
+
+});
 
 // Button Events
 
