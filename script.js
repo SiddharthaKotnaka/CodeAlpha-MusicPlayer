@@ -1,144 +1,257 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+const volume =
+    document.getElementById("volume");
 
-    <title>Music Player</title>
+// Song Data
 
-    <!-- CSS File -->
-    <link rel="stylesheet" href="style.css" />
+const songs = [
+    {
+        title: "Dreamscape",
+        artist: "Alan Walker",
+        src: "assets/songs/song1.mp3",
+        cover: "assets/images/song1.jpg",
+        video: "assets/videos/song1.mp4"
+    },
 
-    <!-- Remix Icons -->
-    <link
-        href="https://cdn.jsdelivr.net/npm/remixicon@4.2.0/fonts/remixicon.css"
-        rel="stylesheet"
-    />
-</head>
-<body>
+    {
+        title: "Faded",
+        artist: "Alan Walker",
+        src: "assets/songs/song2.mp3",
+        cover: "assets/images/song2.jpg",
+        video: "assets/videos/song2.mp4"
+    },
 
-    <video
-        class="bg-video"
-        autoplay
-        muted
-        loop
-        playsinline
-    >
-        <source src="assets/videos/song1.mp4" type="video/mp4">
-    </video>
+    {
+        title: "Spectre",
+        artist: "Alan Walker",
+        src: "assets/songs/song3.mp3",
+        cover: "assets/images/song3.jpg",
+        video: "assets/videos/song3.mp4"
+    }
+];
 
-    <!-- Main Container -->
-    <div class="music-container">
+// Select Elements
 
-        <div class="top-bar">
-            <h1>NeonCat Music</h1>
-        </div>
+const title = document.getElementById("title");
+const artist = document.getElementById("artist");
 
-        <!-- Music Player Card -->
-        <div class="music-player">
+const cover = document.getElementById("cover");
 
-            <!-- Album Image -->
-            <div class="album-art">
-                <img id="cover" src="assets/images/song1.jpg" alt="Album Cover">
-            </div>
+const bgVideo =
+    document.querySelector(".bg-video");
 
-            <!-- Song Details -->
-            <div class="song-details">
-                <h2 class="song-title" id="title">Dreamscape</h2>
-                <p class="artist-name" id="artist">Alan Walker</p>
-            </div>
+const playBtn = document.getElementById("play");
+const prevBtn = document.getElementById("prev");
+const nextBtn = document.getElementById("next");
 
-            <!-- Progress Bar -->
-            <div class="progress-container">
+const progress = document.getElementById("progress");
+const progressBar = document.getElementById("progress-bar");
 
-                <span class="current-time">0:00</span>
+// Audio Object
 
-                <div class="progress-bar" id="progress-bar">
-                    <div class="progress" id="progress"></div>
-                </div>
+const audio = new Audio();
 
-                <span class="duration">3:45</span>
+let currentSong = 0;
+let isPlaying = false;
 
-            </div>
+// Load Song
 
-            <!-- Controls -->
-            <div class="controls">
+function loadSong(song){
 
-                <button class="control-btn" id="prev">
-                    <i class="ri-skip-back-fill"></i>
-                </button>
+    title.textContent = song.title;
+    artist.textContent = song.artist;
 
-                <button class="play-btn" id="play">
-                    <i class="ri-play-fill"></i>
-                </button>
+    cover.src = song.cover;
 
-                <button class="control-btn" id="next">
-                    <i class="ri-skip-forward-fill"></i>
-                </button>
+    bgVideo.innerHTML = `
+        <source src="${song.video}" type="video/mp4">
+    `;
 
-            </div>
+    bgVideo.load();
 
-            <div class="equalizer">
+    bgVideo.play();
 
-                <span></span>
-                <span></span>
-                <span></span>
-                <span></span>
+    audio.src = song.src;
+}
 
-            </div>
+loadSong(songs[currentSong]);
 
-            <!-- Volume -->
-            <div class="volume-container">
+// Play Song
 
-                <i class="ri-volume-up-fill"></i>
+function playSong(){
 
-                <input
-                    type="range"
-                    min="0"
-                    max="100"
-                    value="70"
-                    id="volume"
-                />
+    isPlaying = true;
 
-            </div>
+    audio.play();
 
-        </div>
+    playBtn.innerHTML =
+        '<i class="ri-pause-fill"></i>';
 
-        <!-- Playlist Section -->
-        <div class="playlist">
+    document.querySelector(".music-player")
+        .classList.add("playing");
+}
 
-            <h3>Playlist</h3>
+// Pause Song
 
-            <ul id="playlist">
+function pauseSong(){
 
-                <li class="active-song">
-                    Dreamscape
-                </li>
+    isPlaying = false;
 
-                <li>
-                    Faded
-                </li>
+    audio.pause();
 
-                <li>
-                    Spectre
-                </li>
+    playBtn.innerHTML =
+        '<i class="ri-play-fill"></i>';
 
-                <li>
-                    Alone
-                </li>
+    document.querySelector(".music-player")
+        .classList.remove("playing");
+}
 
-            </ul>
+// Play Button Event
 
-        </div>
+playBtn.addEventListener("click", () => {
 
-    </div>
+    if(isPlaying){
+        pauseSong();
+    }
+    else{
+        playSong();
+    }
 
-    <!-- JavaScript File -->
-    <script src="script.js"></script>
+});
 
-<footer>
-    Created by Siddharth © 2026
-</footer>
+// Next Song
 
-</body>
-</html>
+function nextSong(){
+
+    currentSong++;
+
+    if(currentSong > songs.length - 1){
+        currentSong = 0;
+    }
+
+    loadSong(songs[currentSong]);
+
+    playSong();
+}
+
+// Previous Song
+
+function prevSong(){
+
+    currentSong--;
+
+    if(currentSong < 0){
+        currentSong = songs.length - 1;
+    }
+
+    loadSong(songs[currentSong]);
+
+    playSong();
+}
+
+// Button Events
+
+nextBtn.addEventListener("click", nextSong);
+
+prevBtn.addEventListener("click", prevSong);
+
+// Progress Bar Update
+
+audio.addEventListener("timeupdate", () => {
+
+    const { duration, currentTime } = audio;
+
+    // Progress Percentage
+
+    const progressPercent =
+        (currentTime / duration) * 100;
+
+    progress.style.width =
+        `${progressPercent}%`;
+
+    // Update Timing
+
+    const currentMinutes =
+        Math.floor(currentTime / 60);
+
+    const currentSeconds =
+        Math.floor(currentTime % 60);
+
+    const durationMinutes =
+        Math.floor(duration / 60);
+
+    const durationSeconds =
+        Math.floor(duration % 60);
+
+    document.querySelector(".current-time")
+        .textContent =
+        `${currentMinutes}:${currentSeconds < 10 ? '0' : ''}${currentSeconds}`;
+
+    document.querySelector(".duration")
+        .textContent =
+        `${durationMinutes}:${durationSeconds < 10 ? '0' : ''}${durationSeconds}`;
+
+});
+
+// Click Progress Bar
+
+progressBar.addEventListener("click", (e) => {
+
+    const width = progressBar.clientWidth;
+
+    const clickX = e.offsetX;
+
+    const duration = audio.duration;
+
+    audio.currentTime =
+        (clickX / width) * duration;
+});
+
+// Auto Next Song
+
+audio.addEventListener("ended", nextSong);
+
+// Playlist Click Functionality
+
+const playlist =
+    document.querySelectorAll("#playlist li");
+
+playlist.forEach((item, index) => {
+
+    item.addEventListener("click", () => {
+
+        currentSong = index;
+
+        loadSong(songs[currentSong]);
+
+        playSong();
+
+        updatePlaylist();
+
+    });
+
+});
+
+// Active Playlist Highlight
+
+function updatePlaylist(){
+
+    playlist.forEach((item) => {
+        item.classList.remove("active-song");
+    });
+
+    playlist[currentSong]
+        .classList.add("active-song");
+}
+
+updatePlaylist();
+
+// Volume Control
+
+audio.volume = 0.7;
+
+volume.addEventListener("input", () => {
+
+    audio.volume =
+        volume.value / 100;
+
+});
