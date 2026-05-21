@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <title>Music Player</title>
+
+    <!-- CSS File -->
+    <link rel="stylesheet" href="style.css" />
+
+    <!-- Remix Icons -->
+    <link
+        href="https://cdn.jsdelivr.net/npm/remixicon@4.2.0/fonts/remixicon.css"
+        rel="stylesheet"
+    />
+</head>
+<body>
+
+    <video
+        class="bg-video"
+        autoplay
+        muted
+        loop
+        playsinline
+    >
+        <source src="assets/videos/song1.mp4" type="video/mp4">
+    </video>
+
+    <!-- Main Container -->
+    <div class="music-container">
+
+        <div class="top-bar">
+            <h1>NeonCat Music</h1>
+        </div>
+
+        <!-- Music Player Card -->
+        <div class="music-player">
+
+            <!-- Album Image -->
+            <div class="album-art">
+                <img id="cover" src="assets/images/song1.jpg" alt="Album Cover">
+            </div>
+
+            <!-- Song Details -->
+            <div class="song-details">
+                <h2 class="song-title" id="title">Dreamscape</h2>
+                <p class="artist-name" id="artist">Alan Walker</p>
+            </div>
+
+            <!-- Progress Bar -->
+            <div class="progress-container">
+
+                <span class="current-time">0:00</span>
+
+                <div class="progress-bar" id="progress-bar">
+                    <div class="progress" id="progress"></div>
+                </div>
+
+                <span class="duration">3:45</span>
+
+            </div>
+
+            <!-- Controls -->
+            <div class="controls">
+
+                <button class="control-btn" id="prev">
+                    <i class="ri-skip-back-fill"></i>
+                </button>
+
+                <button class="play-btn" id="play">
+                    <i class="ri-play-fill"></i>
+                </button>
+
+                <button class="control-btn" id="next">
+                    <i class="ri-skip-forward-fill"></i>
+                </button>
+
+            </div>
+
+            <div class="equalizer">
+
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
+
+            </div>
+
+            <!-- Volume -->
+            <div class="volume-container">
+
+                <i class="ri-volume-up-fill"></i>
+
+                <input
+                    type="range"
+                    min="0"
+                    max="100"
+                    value="70"
+                    id="volume"
+                />
+
+            </div>
+
+        </div>
+
+        <!-- Playlist Section -->
+        <div class="playlist">
+
+            <h3>Playlist</h3>
+
+            <ul id="playlist">
+
+                <li class="active-song">
+                    Dreamscape
+                </li>
+
+                <li>
+                    Faded
+                </li>
+
+                <li>
+                    Spectre
+                </li>
+
+                <li>
+                    Alone
+                </li>
+
+            </ul>
+
+        </div>
+
+    </div>
+
+    <!-- JavaScript File -->
+    <script src="script.js"></script>
+
+<footer>
+    Created by Siddharth © 2026
+</footer>
+
+</body>
+</html>
