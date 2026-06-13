@@ -1,0 +1,698 @@
+<<<<<<< HEAD
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <title>Music Player</title>
+
+    <!-- CSS File -->
+    <link rel="stylesheet" href="style.css" />
+
+    <!-- Remix Icons -->
+    <link
+        href="https://cdn.jsdelivr.net/npm/remixicon@4.2.0/fonts/remixicon.css"
+        rel="stylesheet"
+    />
+</head>
+<body>
+
+    <div class="loader-screen" id="loader">
+
+        <h1>CrazySidd's Music World</h1>
+
+    </div>
+
+    <video
+        class="bg-video"
+        autoplay
+        muted
+        loop
+        playsinline
+    >
+        <source src="assets/videos/song1.mp4" type="video/mp4">
+    </video>
+    <div class="bg-glow"></div>
+
+    <!-- MAIN APP -->
+
+    <div class="app-layout">
+
+        <!-- SIDEBAR -->
+
+        <aside class="sidebar">
+
+            <div class="logo">
+
+                <h2>CrazySidd</h2>
+
+            </div>
+
+            <div class="search-box">
+
+                <i class="ri-search-line"></i>
+
+                <input
+                type="text"
+                placeholder="Search music..."
+                id="search-input">
+
+                <div class="search-results" id="search-results"></div>
+
+            </div>
+
+            <nav>
+
+                <a href="#" class="active-link" id="home-btn">
+                    <i class="ri-home-5-line"></i>
+                    Home
+                </a>
+
+                <a href="#trending-section" id="trending-btn">
+                    <i class="ri-fire-line"></i>
+                    Trending
+                </a>
+
+                <a href="#playlist-section" id="playlist-btn">
+                    <i class="ri-music-2-line"></i>
+                    Playlist
+                </a>
+
+                <a href="#favorites-section" id="favorites-btn">
+                    <i class="ri-heart-3-line"></i>
+                    Favorites
+                </a>
+
+            </nav>
+
+        </aside>
+
+        <!-- MAIN CONTENT -->
+
+        <main class="main-content">
+
+            <div class="top-bar">
+
+                <h1 id="greeting-text">
+                    Good Afternoon
+                </h1>
+
+                <p>
+                    Welcome back to CrazySidd's Music World
+                </p>
+
+            </div>
+
+            <!-- HERO SECTION -->
+
+            <section class="hero-section">
+
+                <div class="hero-left">
+
+                    <h2 id="hero-title">
+
+                        Select a Song
+
+                    </h2>
+
+                    <p id="hero-artist">
+
+                        CrazySidd Music Player
+
+                    </p>
+
+                    <p id="hero-description">
+
+                        Play any song to start immersive neon music experience.
+
+                    </p>
+
+                    <button class="hero-btn"
+                    onclick="document.querySelector('.featured-section').scrollIntoView({behavior:'smooth'})">
+
+                        Explore Songs
+
+                    </button>
+
+                </div>
+
+                <div class="hero-right">
+
+                    <img
+                    id="hero-image"
+                    src="assets/images/song1.jpg">
+
+                </div>
+
+            </section>
+
+            <!-- FEATURED -->
+
+            <section
+            class="featured-section"
+            id="trending-section">
+
+                <h3>Trending Now</h3>
+
+                    <div class="album-grid">
+
+                        <div
+                        class="album-card"
+                        onclick="window.location.href='player.html?song=0'">
+
+                            <img src="assets/images/song1.jpg">
+
+                            <h4>Neon Nights</h4>
+
+                            <p>Synthwave Mix</p>
+
+                        </div>
+
+                        <div
+                        class="album-card"
+                        onclick="window.location.href='player.html?song=1'">
+
+                            <img src="assets/images/song2.jpg">
+
+                            <h4>Chill Beats</h4>
+
+                            <p>Lo-fi Collection</p>
+
+                        </div>
+
+                        <div
+                        class="album-card"
+                        onclick="window.location.href='player.html?song=2'">
+
+                            <img src="assets/images/song3.jpg">
+
+                            <h4>Dark Energy</h4>
+
+                            <p>EDM Playlist</p>
+
+                        </div>
+
+                    </div>
+
+                <h3 id="playlist-section">Featured Songs</h3>
+
+                <div class="album-grid">
+
+                    <div
+                    class="album-card"
+                    onclick="window.location.href='player.html?song=0'">
+
+                        <img src="assets/images/song1.jpg">
+
+                        <h4>Dreamscape</h4>
+
+                        <p>Alan Walker</p>
+
+                    </div>
+
+                    <div
+                    class="album-card"
+                    onclick="window.location.href='player.html?song=1'">
+
+                        <img src="assets/images/song2.jpg">
+
+                        <h4>Faded</h4>
+
+                        <p>Alan Walker</p>
+
+                    </div>
+
+                    <div
+                    class="album-card"
+                    onclick="window.location.href='player.html?song=2'">
+
+                        <img src="assets/images/song3.jpg">
+
+                        <h4>Spectre</h4>
+
+                        <p>Alan Walker</p>
+
+                    </div>
+
+                </div>
+
+            </section>
+
+            <section class="featured-section" id="favorites-section">
+
+                <h3>Favorites</h3>
+
+                <div class="album-grid" id="favorites-grid">
+
+                </div>
+
+            </section>
+
+        </main>
+
+    </div>
+
+        <div class="mini-player" id="mini-player">
+
+            <!-- LEFT -->
+
+            <div class="mini-left">
+
+                <img
+                src="assets/images/song1.jpg"
+                id="mini-cover">
+
+                <div class="mini-info">
+
+                    <h4 id="mini-title">
+                        Dreamscape
+                    </h4>
+
+                    <p id="mini-artist">
+                        Alan Walker
+                    </p>
+
+                </div>
+
+            </div>
+
+            <!-- CENTER CONTROLS -->
+
+            <div class="mini-controls">
+
+                <button
+                class="mini-btn"
+                id="mini-prev">
+
+                    <i class="ri-skip-back-fill"></i>
+
+                </button>
+
+                <button
+                class="mini-play-btn"
+                id="mini-play">
+
+                    <i class="ri-play-fill"></i>
+
+                </button>
+
+                <button
+                class="mini-btn"
+                id="mini-next">
+
+                    <i class="ri-skip-forward-fill"></i>
+
+                </button>
+
+            </div>
+
+            <button
+            class="mini-btn"
+            id="favorite-btn">
+
+                <i class="ri-heart-line"></i>
+
+            </button>
+
+            <!-- RIGHT -->
+
+            <div class="mini-volume">
+
+                <button
+                class="mini-btn"
+                id="mini-mute">
+
+                    <i class="ri-volume-up-fill"></i>
+
+                </button>
+
+                <input
+                type="range"
+                min="0"
+                max="100"
+                value="70"
+                id="mini-volume-slider">
+
+            </div>
+
+        </div>
+
+<footer>
+    Created by Siddharth © 2026
+</footer>
+
+<!-- JavaScript File -->
+<script src="script.js"></script>
+
+</body>
+=======
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <title>Music Player</title>
+
+    <!-- CSS File -->
+    <link rel="stylesheet" href="style.css" />
+
+    <!-- Remix Icons -->
+    <link
+        href="https://cdn.jsdelivr.net/npm/remixicon@4.2.0/fonts/remixicon.css"
+        rel="stylesheet"
+    />
+</head>
+<body>
+
+    <div class="loader-screen" id="loader">
+
+        <h1>CrazySidd's Music World</h1>
+
+    </div>
+
+    <video
+        class="bg-video"
+        autoplay
+        muted
+        loop
+        playsinline
+    >
+        <source src="assets/videos/song1.mp4" type="video/mp4">
+    </video>
+    <div class="bg-glow"></div>
+
+    <!-- MAIN APP -->
+
+    <div class="app-layout">
+
+        <!-- SIDEBAR -->
+
+        <aside class="sidebar">
+
+            <div class="logo">
+
+                <h2>CrazySidd</h2>
+
+            </div>
+
+            <div class="search-box">
+
+                <i class="ri-search-line"></i>
+
+                <input
+                type="text"
+                placeholder="Search music..."
+                id="search-input">
+
+                <div class="search-results" id="search-results"></div>
+
+            </div>
+
+            <nav>
+
+                <a href="#" class="active-link" id="home-btn">
+                    <i class="ri-home-5-line"></i>
+                    Home
+                </a>
+
+                <a href="#trending-section" id="trending-btn">
+                    <i class="ri-fire-line"></i>
+                    Trending
+                </a>
+
+                <a href="#playlist-section" id="playlist-btn">
+                    <i class="ri-music-2-line"></i>
+                    Playlist
+                </a>
+
+                <a href="#favorites-section" id="favorites-btn">
+                    <i class="ri-heart-3-line"></i>
+                    Favorites
+                </a>
+
+            </nav>
+
+        </aside>
+
+        <!-- MAIN CONTENT -->
+
+        <main class="main-content">
+
+            <div class="top-bar">
+
+                <h1 id="greeting-text">
+                    Good Afternoon
+                </h1>
+
+                <p>
+                    Welcome back to CrazySidd's Music World
+                </p>
+
+            </div>
+
+            <!-- HERO SECTION -->
+
+            <section class="hero-section">
+
+                <div class="hero-left">
+
+                    <h2 id="hero-title">
+
+                        Select a Song
+
+                    </h2>
+
+                    <p id="hero-artist">
+
+                        CrazySidd Music Player
+
+                    </p>
+
+                    <p id="hero-description">
+
+                        Play any song to start immersive neon music experience.
+
+                    </p>
+
+                    <button class="hero-btn"
+                    onclick="document.querySelector('.featured-section').scrollIntoView({behavior:'smooth'})">
+
+                        Explore Songs
+
+                    </button>
+
+                </div>
+
+                <div class="hero-right">
+
+                    <img
+                    id="hero-image"
+                    src="assets/images/song1.jpg">
+
+                </div>
+
+            </section>
+
+            <!-- FEATURED -->
+
+            <section
+            class="featured-section"
+            id="trending-section">
+
+                <h3>Trending Now</h3>
+
+                    <div class="album-grid">
+
+                        <div
+                        class="album-card"
+                        onclick="window.location.href='player.html?song=0'">
+
+                            <img src="assets/images/song1.jpg">
+
+                            <h4>Neon Nights</h4>
+
+                            <p>Synthwave Mix</p>
+
+                        </div>
+
+                        <div
+                        class="album-card"
+                        onclick="window.location.href='player.html?song=1'">
+
+                            <img src="assets/images/song2.jpg">
+
+                            <h4>Chill Beats</h4>
+
+                            <p>Lo-fi Collection</p>
+
+                        </div>
+
+                        <div
+                        class="album-card"
+                        onclick="window.location.href='player.html?song=2'">
+
+                            <img src="assets/images/song3.jpg">
+
+                            <h4>Dark Energy</h4>
+
+                            <p>EDM Playlist</p>
+
+                        </div>
+
+                    </div>
+
+                <h3 id="playlist-section">Featured Songs</h3>
+
+                <div class="album-grid">
+
+                    <div
+                    class="album-card"
+                    onclick="window.location.href='player.html?song=0'">
+
+                        <img src="assets/images/song1.jpg">
+
+                        <h4>Dreamscape</h4>
+
+                        <p>Alan Walker</p>
+
+                    </div>
+
+                    <div
+                    class="album-card"
+                    onclick="window.location.href='player.html?song=1'">
+
+                        <img src="assets/images/song2.jpg">
+
+                        <h4>Faded</h4>
+
+                        <p>Alan Walker</p>
+
+                    </div>
+
+                    <div
+                    class="album-card"
+                    onclick="window.location.href='player.html?song=2'">
+
+                        <img src="assets/images/song3.jpg">
+
+                        <h4>Spectre</h4>
+
+                        <p>Alan Walker</p>
+
+                    </div>
+
+                </div>
+
+            </section>
+
+            <section class="featured-section" id="favorites-section">
+
+                <h3>Favorites</h3>
+
+                <div class="album-grid" id="favorites-grid">
+
+                </div>
+
+            </section>
+
+        </main>
+
+    </div>
+
+        <div class="mini-player" id="mini-player">
+
+            <!-- LEFT -->
+
+            <div class="mini-left">
+
+                <img
+                src="assets/images/song1.jpg"
+                id="mini-cover">
+
+                <div class="mini-info">
+
+                    <h4 id="mini-title">
+                        Dreamscape
+                    </h4>
+
+                    <p id="mini-artist">
+                        Alan Walker
+                    </p>
+
+                </div>
+
+            </div>
+
+            <!-- CENTER CONTROLS -->
+
+            <div class="mini-controls">
+
+                <button
+                class="mini-btn"
+                id="mini-prev">
+
+                    <i class="ri-skip-back-fill"></i>
+
+                </button>
+
+                <button
+                class="mini-play-btn"
+                id="mini-play">
+
+                    <i class="ri-play-fill"></i>
+
+                </button>
+
+                <button
+                class="mini-btn"
+                id="mini-next">
+
+                    <i class="ri-skip-forward-fill"></i>
+
+                </button>
+
+            </div>
+
+            <button
+            class="mini-btn"
+            id="favorite-btn">
+
+                <i class="ri-heart-line"></i>
+
+            </button>
+
+            <!-- RIGHT -->
+
+            <div class="mini-volume">
+
+                <button
+                class="mini-btn"
+                id="mini-mute">
+
+                    <i class="ri-volume-up-fill"></i>
+
+                </button>
+
+                <input
+                type="range"
+                min="0"
+                max="100"
+                value="70"
+                id="mini-volume-slider">
+
+            </div>
+
+        </div>
+
+<footer>
+    Created by Siddharth © 2026
+</footer>
+
+<!-- JavaScript File -->
+<script src="script.js"></script>
+
+</body>
+>>>>>>> 70451a8 (added new file)
+</html>

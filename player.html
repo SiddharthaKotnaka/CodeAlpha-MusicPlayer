@@ -1,0 +1,528 @@
+<<<<<<< HEAD
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0">
+
+    <title>Player</title>
+
+    <link rel="stylesheet" href="player.css">
+
+    <link
+    href="https://cdn.jsdelivr.net/npm/remixicon@4.2.0/fonts/remixicon.css"
+    rel="stylesheet"
+/>
+
+</head>
+
+<body>
+
+    <h1 class="page-title">
+        CrazySidd's Music World
+    </h1>
+
+    <div class="loader-screen" id="loader"></div>
+
+    <video
+    class="bg-video"
+    autoplay
+    muted
+    loop
+    playsinline>
+
+        <source
+        src="assets/videos/song1.mp4"
+        type="video/mp4">
+
+    </video>
+
+    <div class="bg-glow"></div>
+
+    <div class="player-page-layout">
+
+        <!-- SIDEBAR -->
+
+        <aside class="sidebar player-sidebar">
+
+            <div class="logo">
+
+                <h2>CrazySidd</h2>
+
+            </div>
+
+            <nav>
+
+                <a href="index.html" class="active-link">
+
+                    <i class="ri-home-5-line"></i>
+
+                    Home
+
+                </a>
+
+                <a href="index.html#playlist-section">
+
+                    <i class="ri-music-2-line"></i>
+
+                    Playlist
+
+                </a>
+
+            </nav>
+
+        </aside>
+
+        <!-- PLAYER CONTENT -->
+
+        <div class="player-content">
+
+            <!-- PLAYER -->
+
+            <div class="music-player">
+
+                <div class="album-art">
+
+                    <img
+                    id="cover"
+                    src="assets/images/song1.jpg">
+
+                </div>
+
+                <div class="song-details">
+
+                    <h2
+                    class="song-title"
+                    id="title">
+
+                        Dreamscape
+
+                    </h2>
+
+                    <p
+                    class="artist-name"
+                    id="artist">
+
+                        Alan Walker
+
+                    </p>
+
+                    <p class="song-meta">
+
+                        Chill • Electronic • 2026
+
+                    </p>
+
+                </div>
+
+                <!-- PROGRESS -->
+
+                <div class="progress-container">
+
+                    <span class="current-time">
+                        0:00
+                    </span>
+
+                    <div
+                    class="progress-bar"
+                    id="progress-bar">
+
+                        <div
+                        class="progress"
+                        id="progress">
+                        </div>
+
+                    </div>
+
+                    <span class="duration">
+                        0:00
+                    </span>
+
+                </div>
+
+                <!-- CONTROLS -->
+
+                <div class="controls">
+
+                    <button
+                    class="control-btn"
+                    id="shuffle">
+
+                        <i class="ri-shuffle-line"></i>
+
+                    </button>
+
+                    <button
+                    class="control-btn"
+                    id="prev">
+
+                        <i class="ri-skip-back-fill"></i>
+
+                    </button>
+
+                    <button
+                    class="play-btn"
+                    id="play">
+
+                        <i class="ri-play-fill"></i>
+
+                    </button>
+
+                    <button
+                    class="control-btn"
+                    id="next">
+
+                        <i class="ri-skip-forward-fill"></i>
+
+                    </button>
+
+                    <button
+                    class="control-btn"
+                    id="favorite-player-btn">
+
+                        <i class="ri-heart-line"></i>
+
+                    </button>
+
+                    <button
+                    class="control-btn"
+                    id="loop">
+
+                        <i class="ri-repeat-line"></i>
+
+                    </button>
+
+                </div>
+
+                <!-- VOLUME -->
+
+                <div class="volume-container">
+
+                    <button
+                    class="control-btn"
+                    id="mute-btn">
+
+                        <i class="ri-volume-up-fill"></i>
+
+                    </button>
+
+                    <input
+                    type="range"
+                    min="0"
+                    max="100"
+                    value="70"
+                    id="volume">
+
+                </div>
+
+            </div>
+
+            <!-- PLAYLIST -->
+
+            <div
+            class="playlist"
+            id="playlist-section">
+
+                <h3>Playlist</h3>
+
+                <ul id="playlist">
+
+                    <li class="active-song">
+                        Dreamscape
+                    </li>
+
+                    <li>
+                        Faded
+                    </li>
+
+                    <li>
+                        Spectre
+                    </li>
+
+                </ul>
+
+            </div>
+
+        </div>
+
+    </div>
+
+    <footer>
+
+        Created by Siddharth © 2026
+
+    </footer>
+
+    <script src="player.js"></script>
+
+</body>
+=======
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0">
+
+    <title>Player</title>
+
+    <link rel="stylesheet" href="player.css">
+
+    <link
+    href="https://cdn.jsdelivr.net/npm/remixicon@4.2.0/fonts/remixicon.css"
+    rel="stylesheet"
+/>
+
+</head>
+
+<body>
+
+    <h1 class="page-title">
+        CrazySidd's Music World
+    </h1>
+
+    <div class="loader-screen" id="loader"></div>
+
+    <video
+    class="bg-video"
+    autoplay
+    muted
+    loop
+    playsinline>
+
+        <source
+        src="assets/videos/song1.mp4"
+        type="video/mp4">
+
+    </video>
+
+    <div class="bg-glow"></div>
+
+    <div class="player-page-layout">
+
+        <!-- SIDEBAR -->
+
+        <aside class="sidebar player-sidebar">
+
+            <div class="logo">
+
+                <h2>CrazySidd</h2>
+
+            </div>
+
+            <nav>
+
+                <a href="index.html" class="active-link">
+
+                    <i class="ri-home-5-line"></i>
+
+                    Home
+
+                </a>
+
+                <a href="index.html#playlist-section">
+
+                    <i class="ri-music-2-line"></i>
+
+                    Playlist
+
+                </a>
+
+            </nav>
+
+        </aside>
+
+        <!-- PLAYER CONTENT -->
+
+        <div class="player-content">
+
+            <!-- PLAYER -->
+
+            <div class="music-player">
+
+                <div class="album-art">
+
+                    <img
+                    id="cover"
+                    src="assets/images/song1.jpg">
+
+                </div>
+
+                <div class="song-details">
+
+                    <h2
+                    class="song-title"
+                    id="title">
+
+                        Dreamscape
+
+                    </h2>
+
+                    <p
+                    class="artist-name"
+                    id="artist">
+
+                        Alan Walker
+
+                    </p>
+
+                    <p class="song-meta">
+
+                        Chill • Electronic • 2026
+
+                    </p>
+
+                </div>
+
+                <!-- PROGRESS -->
+
+                <div class="progress-container">
+
+                    <span class="current-time">
+                        0:00
+                    </span>
+
+                    <div
+                    class="progress-bar"
+                    id="progress-bar">
+
+                        <div
+                        class="progress"
+                        id="progress">
+                        </div>
+
+                    </div>
+
+                    <span class="duration">
+                        0:00
+                    </span>
+
+                </div>
+
+                <!-- CONTROLS -->
+
+                <div class="controls">
+
+                    <button
+                    class="control-btn"
+                    id="shuffle">
+
+                        <i class="ri-shuffle-line"></i>
+
+                    </button>
+
+                    <button
+                    class="control-btn"
+                    id="prev">
+
+                        <i class="ri-skip-back-fill"></i>
+
+                    </button>
+
+                    <button
+                    class="play-btn"
+                    id="play">
+
+                        <i class="ri-play-fill"></i>
+
+                    </button>
+
+                    <button
+                    class="control-btn"
+                    id="next">
+
+                        <i class="ri-skip-forward-fill"></i>
+
+                    </button>
+
+                    <button
+                    class="control-btn"
+                    id="favorite-player-btn">
+
+                        <i class="ri-heart-line"></i>
+
+                    </button>
+
+                    <button
+                    class="control-btn"
+                    id="loop">
+
+                        <i class="ri-repeat-line"></i>
+
+                    </button>
+
+                </div>
+
+                <!-- VOLUME -->
+
+                <div class="volume-container">
+
+                    <button
+                    class="control-btn"
+                    id="mute-btn">
+
+                        <i class="ri-volume-up-fill"></i>
+
+                    </button>
+
+                    <input
+                    type="range"
+                    min="0"
+                    max="100"
+                    value="70"
+                    id="volume">
+
+                </div>
+
+            </div>
+
+            <!-- PLAYLIST -->
+
+            <div
+            class="playlist"
+            id="playlist-section">
+
+                <h3>Playlist</h3>
+
+                <ul id="playlist">
+
+                    <li class="active-song">
+                        Dreamscape
+                    </li>
+
+                    <li>
+                        Faded
+                    </li>
+
+                    <li>
+                        Spectre
+                    </li>
+
+                </ul>
+
+            </div>
+
+        </div>
+
+    </div>
+
+    <footer>
+
+        Created by Siddharth © 2026
+
+    </footer>
+
+    <script src="player.js"></script>
+
+</body>
+>>>>>>> 70451a8 (added new file)
+</html>
